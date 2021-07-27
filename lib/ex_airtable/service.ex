@@ -100,7 +100,7 @@ defmodule ExAirtable.Service do
   Returns an `%Airtable.Record{}` on success and an `{:error, reason}` tuple on failure.
   """
   def retrieve(%Config.Table{} = table, id) when is_binary(id) do
-    perform_request(table, url_suffix: "/" <> id)
+    perform_request(table, url_suffix: id)
     |> Airtable.Record.from_map()
   end
 
@@ -134,6 +134,7 @@ defmodule ExAirtable.Service do
       encode(table.base.id) <>
       "/" <>
       encode(table.name) <>
+      "/" <>
       encode(suffix)
   end
 
