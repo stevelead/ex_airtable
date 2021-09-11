@@ -62,7 +62,7 @@ defmodule ExAirtable.Service do
       %{"deleted" => true, "id" => "recJmmAR0IzpaekBn"}
   """
   def delete(%Config.Table{} = table, id) when is_binary(id) do
-    perform_request(table, method: :delete, url_suffix: "/#{id}")
+    perform_request(table, method: :delete, url_suffix: id)
   end
 
   @doc """
